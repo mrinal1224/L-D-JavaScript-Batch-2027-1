@@ -10,7 +10,7 @@
 
 // console.log(sqr)
 
-Array.prototype.myMap = function (callback) {
+Array.prototype.myMap = function (callback , thisArg) {
   // Edge cases
   if (typeof callback != "function") {
     throw new Error("callback is not a function");
@@ -19,7 +19,7 @@ Array.prototype.myMap = function (callback) {
   let resultArray = [];
 
   for (let i = 0; i < this.length; i++) {
-    resultArray.push(callback(this[i] , this));
+    resultArray.push(callback(this[i] , thisArg));
   }
 
   return resultArray;
